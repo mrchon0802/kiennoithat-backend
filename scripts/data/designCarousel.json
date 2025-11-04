@@ -1,0 +1,14 @@
+[
+  {
+    "title": "Thiết kế nhà",
+    "description": "Kinh nghiệm nhiều năm trong thiết kế nhà ở",
+    "image": "/logo/house-design.png",
+    "button": "Đặt hàng thiết kế nhà"
+  },
+  {
+    "title": "Thiết kế nội thất",
+    "description": "Sự hài lòng của bạn là thành công của chúng tôi",
+    "image": "/logo/interior-design.png",
+    "button": "Đặt hàng thiết kế nội thất"
+  }
+]

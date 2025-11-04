@@ -1,0 +1,56 @@
+import { connect, connection, Schema } from 'mongoose';
+import * as fs from 'fs';
+import * as path from 'path';
+import { BannerSchema, BannerDocument } from '../../src/banner/banner.schema';
+
+// ---- Interface (type-safe JSON) ----
+interface Button {
+  label: string;
+  link: string;
+}
+
+interface BannerJson {
+  title: string;
+  description?: string;
+  image: string;
+  buttons: Button[];
+}
+
+export async function seedBanner() {
+  console.log('🌱 Seeding banners...');
+
+  // 1️⃣ Nếu chưa có kết nối thì mới connect
+  if (connection.readyState === 0) {
+    await connect('mongodb://127.0.0.1:27017/kiennoithat');
+    console.log('✅ Connected to MongoDB (from seed-banner)');
+  }
+
+  // 2️⃣ Load JSON file
+  const filePath = path.join(__dirname, '..', 'data', 'banner.json');
+  const rawData = fs.readFileSync(filePath, 'utf-8');
+  const banners: BannerJson[] = JSON.parse(rawData);
+
+  // 3️⃣ Khởi tạo Model tạm (không cần qua Nest)
+  const BannerModel = connection.model<BannerDocument>(
+    'Banner',
+    BannerSchema as Schema,
+  );
+
+  // 4️⃣ Xóa dữ liệu cũ
+  await BannerModel.deleteMany({});
+
+  // 5️⃣ Insert dữ liệu mới
+  await BannerModel.insertMany(banners);
+
+  console.log(`🎉 Seeded ${banners.length} banners`);
+}
+
+// 6️⃣ Nếu chạy trực tiếp file này (node seed-banner.ts) thì tự đóng DB
+if (require.main === module) {
+  seedBanner()
+    .catch((err) => console.error('❌ Error seeding banners:', err))
+    .finally(async () => {
+      await connection.close();
+      process.exit(0);
+    });
+}

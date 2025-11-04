@@ -1,0 +1,20 @@
+[
+  {
+    "title": "Giường ngủ đôi",
+    "description": "Giảm giá 30% cho đơn hàng đầu tiên",
+    "image": "/images/giuong-ngu-doi-hero-1.png",
+    "buttons": [
+      { "label": "Mua Ngay", "link": "/giuong-ngu-doi" },
+      { "label": "View Detail", "link": "/giuong-ngu-doi" }
+    ]
+  },
+  {
+    "title": "Gỗ cao su tự nhiên",
+    "description": "Sản phẩm được bảo hành 01 năm",
+    "image": "/images/sofa-va-ban-an-hero.png",
+    "buttons": [
+      { "label": "Order Sofa đôi", "link": "/sofa-doi" },
+      { "label": "Order Bàn ăn", "link": "/ban-an" }
+    ]
+  }
+]

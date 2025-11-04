@@ -1,0 +1,47 @@
+[
+  {
+    "title": "Giường ngủ đôi",
+    "image": "/images/giuong-ngu-doi.png",
+    "link": "/giuong-ngu-doi",
+    "button": [
+      { "label": "Order", "link": "/giuong-ngu-doi" },
+      { "label": "Learn", "link": "/giuong-ngu-doi" }
+    ]
+  },
+  {
+    "title": "Bàn ăn",
+    "image": "/images/ban-an.png",
+    "link": "/ban-an",
+    "button": [
+      { "label": "Order", "link": "/ban-an" },
+      { "label": "Learn", "link": "/ban-an" }
+    ]
+  },
+  {
+    "title": "Bàn trang điểm",
+    "image": "/images/ban-trang-diem.png",
+    "link": "/ban-trang-diem",
+    "button": [
+      { "label": "Order", "link": "/ban-trang-diem" },
+      { "label": "Learn", "link": "/ban-trang-diem" }
+    ]
+  },
+  {
+    "title": "Sofa đôi",
+    "image": "/images/sofa.png",
+    "link": "/sofa-doi",
+    "button": [
+      { "label": "Order", "link": "/sofa-doi" },
+      { "label": "Learn", "link": "/sofa-doi" }
+    ]
+  },
+  {
+    "title": "Tủ quần áo",
+    "image": "/images/tu-quan-ao.png",
+    "link": "/tu-quan-ao",
+    "button": [
+      { "label": "Order", "link": "/tu-quan-ao" },
+      { "label": "Learn", "link": "/tu-quan-ao" }
+    ]
+  }
+]

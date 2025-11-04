@@ -1,0 +1,256 @@
+[
+  {
+    "productId": "giuong-ngu-doi",
+    "image": "/images/giuong-ngu-doi.png",
+    "title": "Giường ngủ đôi",
+    "price": 4000000,
+    "weight": "80",
+    "size": {
+      "width": ["1.4", "1.6", "1.8"],
+      "length": "2",
+      "height": "0.9"
+    },
+    "colors": [
+      {
+        "name": "Blonde Surfside Ash",
+        "image": "/material-color/K525.jpg",
+        "productImage": "/images/giuong-ngu-doi.png"
+      },
+      {
+        "name": "Tobacco Franklin Walnut",
+        "image": "/material-color/K547.jpg",
+        "productImage": "/images/giuong-mau-nau.png"
+      }
+    ],
+    "features": [
+      {
+        "image": "/feature-detail/head-board.png",
+        "description": "MDF lõi xanh chống ẩm phủ Melamine."
+      },
+      {
+        "image": "/feature-detail/frame.png",
+        "description": "Sản phẩm được bảo hành 01 năm"
+      },
+      {
+        "image": "/feature-detail/legs.png",
+        "description": "Sản phẩm được sơn phủ NC giúp giữ vân gỗ bền màu, nhẵn mịn và chóng thấm nước."
+      },
+      {
+        "image": "/feature-detail/slat.png",
+        "description": "Màu gỗ bắt mắt và vân gỗ đẹp tự nhiên"
+      },
+      {
+        "image": "/feature-detail/footboard.png",
+        "description": "Sản phẩm được thiết kế bo tròn góc cạnh, vừa tạo cảm giác dễ chịu "
+      },
+      {
+        "image": "/feature-detail/structure.png",
+        "description": "Đơn giá chưa bao gồm giao hàng & lắp đặt."
+      }
+    ]
+  },
+  {
+    "productId": "ban-an",
+    "image": "/images/ban-an.png",
+    "title": "Bàn ăn",
+    "weight": "40",
+
+    "price": 4000000,
+    "size": {
+      "width": ["1.4", "1.6", "1.8"],
+      "length": "2",
+      "height": "0.9"
+    },
+    "colors": [
+      {
+        "name": "Blonde Surfside Ash",
+        "image": "/material-color/K525.jpg",
+        "productImage": "/images/ban-an.png"
+      },
+      {
+        "name": "Tobacco Franklin Walnut",
+        "image": "/material-color/K547.jpg",
+        "productImage": "/images/ban-an-nau.png"
+      }
+    ],
+    "features": [
+      {
+        "image": "/feature-detail/head-board.png",
+        "description": "MDF lõi xanh chống ẩm phủ Melamine."
+      },
+      {
+        "image": "/feature-detail/frame.png",
+        "description": "Sản phẩm được bảo hành 01 năm"
+      },
+      {
+        "image": "/feature-detail/legs.png",
+        "description": "Sản phẩm được sơn phủ NC giúp giữ vân gỗ bền màu, nhẵn mịn và chóng thấm nước."
+      },
+      {
+        "image": "/feature-detail/slat.png",
+        "description": "Màu gỗ bắt mắt và vân gỗ đẹp tự nhiên"
+      },
+      {
+        "image": "/feature-detail/footboard.png",
+        "description": "Sản phẩm được thiết kế bo tròn góc cạnh, vừa tạo cảm giác dễ chịu "
+      },
+      {
+        "image": "/feature-detail/structure.png",
+        "description": "Đơn giá chưa bao gồm giao hàng & lắp đặt."
+      }
+    ]
+  },
+  {
+    "productId": "ban-trang-diem",
+    "image": "/images/ban-trang-diem.png",
+    "title": "Bàn trang điểm",
+    "price": 4000000,
+    "weight": "50",
+
+    "size": {
+      "width": ["1.4", "1.6", "1.8"],
+      "length": "2",
+      "height": "0.9"
+    },
+    "colors": [
+      {
+        "name": "Blonde Surfside Ash",
+        "image": "/material-color/K525.jpg",
+        "productImage": "/images/ban-trang-diem.png"
+      },
+      {
+        "name": "Tobacco Franklin Walnut",
+        "image": "/material-color/K547.jpg",
+        "productImage": "/images/ban-trang-diem-nau.png"
+      }
+    ],
+    "features": [
+      {
+        "image": "/feature-detail/head-board.png",
+        "description": "MDF lõi xanh chống ẩm phủ Melamine."
+      },
+      {
+        "image": "/feature-detail/frame.png",
+        "description": "Sản phẩm được bảo hành 01 năm"
+      },
+      {
+        "image": "/feature-detail/legs.png",
+        "description": "Sản phẩm được sơn phủ NC giúp giữ vân gỗ bền màu, nhẵn mịn và chóng thấm nước."
+      },
+      {
+        "image": "/feature-detail/slat.png",
+        "description": "Màu gỗ bắt mắt và vân gỗ đẹp tự nhiên"
+      },
+      {
+        "image": "/feature-detail/footboard.png",
+        "description": "Sản phẩm được thiết kế bo tròn góc cạnh, vừa tạo cảm giác dễ chịu "
+      },
+      {
+        "image": "/feature-detail/structure.png",
+        "description": "Đơn giá chưa bao gồm giao hàng & lắp đặt."
+      }
+    ]
+  },
+  {
+    "productId": "sofa-doi",
+    "image": "/images/sofa.png",
+    "title": "Sofa đôi",
+    "weight": "70",
+
+    "price": 4000000,
+    "size": {
+      "width": ["1.4", "1.6", "1.8"],
+      "length": "2",
+      "height": "0.9"
+    },
+    "colors": [
+      {
+        "name": "Blonde Surfside Ash",
+        "image": "/material-color/K525.jpg",
+        "productImage": "/images/sofa.png"
+      },
+      {
+        "name": "Tobacco Franklin Walnut",
+        "image": "/material-color/K547.jpg",
+        "productImage": "/images/sofa-doi-nau.png"
+      }
+    ],
+    "features": [
+      {
+        "image": "/feature-detail/head-board.png",
+        "description": "MDF lõi xanh chống ẩm phủ Melamine."
+      },
+      {
+        "image": "/feature-detail/frame.png",
+        "description": "Sản phẩm được bảo hành 01 năm"
+      },
+      {
+        "image": "/feature-detail/legs.png",
+        "description": "Sản phẩm được sơn phủ NC giúp giữ vân gỗ bền màu, nhẵn mịn và chóng thấm nước."
+      },
+      {
+        "image": "/feature-detail/slat.png",
+        "description": "Màu gỗ bắt mắt và vân gỗ đẹp tự nhiên"
+      },
+      {
+        "image": "/feature-detail/footboard.png",
+        "description": "Sản phẩm được thiết kế bo tròn góc cạnh, vừa tạo cảm giác dễ chịu "
+      },
+      {
+        "image": "/feature-detail/structure.png",
+        "description": "Đơn giá chưa bao gồm giao hàng & lắp đặt."
+      }
+    ]
+  },
+  {
+    "productId": "tu-quan-ao",
+    "image": "/images/tu-quan-ao.png",
+    "title": "Tủ quần áo",
+    "weight": "100",
+
+    "price": 4000000,
+    "size": {
+      "width": ["1.4", "1.6", "1.8"],
+      "length": "2",
+      "height": "0.9"
+    },
+    "colors": [
+      {
+        "name": "Blonde Surfside Ash",
+        "image": "/material-color/K525.jpg",
+        "productImage": "/images/tu-quan-ao.png"
+      },
+      {
+        "name": "Tobacco Franklin Walnut",
+        "image": "/material-color/K547.jpg",
+        "productImage": "/images/tu-quan-ao-nau.png"
+      }
+    ],
+    "features": [
+      {
+        "image": "/feature-detail/head-board.png",
+        "description": "MDF lõi xanh chống ẩm phủ Melamine."
+      },
+      {
+        "image": "/feature-detail/frame.png",
+        "description": "Sản phẩm được bảo hành 01 năm"
+      },
+      {
+        "image": "/feature-detail/legs.png",
+        "description": "Sản phẩm được sơn phủ NC giúp giữ vân gỗ bền màu, nhẵn mịn và chóng thấm nước."
+      },
+      {
+        "image": "/feature-detail/slat.png",
+        "description": "Màu gỗ bắt mắt và vân gỗ đẹp tự nhiên"
+      },
+      {
+        "image": "/feature-detail/footboard.png",
+        "description": "Sản phẩm được thiết kế bo tròn góc cạnh, vừa tạo cảm giác dễ chịu "
+      },
+      {
+        "image": "/feature-detail/structure.png",
+        "description": "Đơn giá chưa bao gồm giao hàng & lắp đặt."
+      }
+    ]
+  }
+]
