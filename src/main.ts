@@ -12,7 +12,7 @@ async function bootstrap() {
   app.enableCors({
     origin: [
       'https://kiennoithat.vercel.app',
-      'https://kiennoithat-lvpsgxiy9-mrchon0802s-projects-c871a8eb.vercel.app',
+      'https://https://kiennoithat-lvpsgxiy9-mrchon0802s-projects-c871a8eb.vercel.app/',
     ],
     methods: ['GET', 'POST', 'PUT', 'DELETE', 'PATCH', 'OPTIONS'],
     credentials: true,
@@ -26,7 +26,7 @@ async function bootstrap() {
     console.error('❌ MongoDB connection error:', err);
   });
 
-  const PORT = process.env.PORT || 5000;
+  const PORT = process.env.PORT || 8080;
   await app.listen(PORT, '0.0.0.0', () => {
     console.log(`✅ Backend running on port ${PORT}`);
   });
