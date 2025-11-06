@@ -1,4 +1,5 @@
 import mongoose from 'mongoose';
+import { config } from 'dotenv';
 
 // Import trực tiếp các hàm seed từ các file riêng
 import { seedBanner } from './seed-banner';
@@ -9,8 +10,12 @@ import { seedProductNavItem } from './seed-product-nav-item';
 
 async function seedAll() {
   try {
+    const uri =
+      process.env.MONGO_URI || 'mongodb://127.0.0.1:27017/kiennoithat';
+    console.log(`🔌 Connecting to MongoDB: ${uri}`);
+
     // 1. Connect DB chỉ 1 lần
-    await mongoose.connect('mongodb://127.0.0.1:27017/kiennoithat');
+    await mongoose.connect(uri);
     console.log('✅ Connected to MongoDB');
 
     // 2. Gọi từng seed function
