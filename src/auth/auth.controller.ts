@@ -31,7 +31,7 @@ export class AuthController {
     res.cookie('access_token', accessToken, {
       httpOnly: true,
       secure: process.env.NODE_ENV === 'production', // 🔒 chỉ bật HTTPS trong production
-      sameSite: 'lax', // ✅ tránh lỗi CORS khi frontend & backend khác domain
+      sameSite: 'none', // ✅ tránh lỗi CORS khi frontend & backend khác domain
       maxAge: 15 * 60 * 1000, // 15 phút
       path: '/', // ✅ cookie dùng được cho toàn bộ app
     });
@@ -40,7 +40,7 @@ export class AuthController {
     res.cookie('refresh_token', refreshToken, {
       httpOnly: true,
       secure: process.env.NODE_ENV === 'production',
-      sameSite: 'lax',
+      sameSite: 'none',
       maxAge: 7 * 24 * 60 * 60 * 1000, // 7 ngày
       path: '/',
     });
@@ -67,20 +67,19 @@ export class AuthController {
       refreshToken: newRefreshToken,
     } = await this.authService.refresh(refreshToken);
 
-    const isDev = process.env.NODE_ENV !== 'production';
-
     res.cookie('access_token', accessToken, {
       httpOnly: true,
-      secure: !isDev, // ✅ false khi dev
-      sameSite: 'lax',
+      secure: process.env.NODE_ENV === 'production',
+      sameSite: 'none',
       maxAge: 15 * 60 * 1000,
       path: '/',
     });
 
-    res.cookie('refresh_token', refreshToken, {
+    res.cookie('refresh_token', newRefreshToken, {
+      // ⚠️ nên gửi newRefreshToken
       httpOnly: true,
-      secure: !isDev,
-      sameSite: 'lax',
+      secure: process.env.NODE_ENV === 'production',
+      sameSite: 'none',
       maxAge: 7 * 24 * 60 * 60 * 1000,
       path: '/',
     });

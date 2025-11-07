@@ -1,4 +1,4 @@
-import mongoose, { connect, connection, Schema } from 'mongoose';
+import mongoose, { Schema } from 'mongoose';
 import * as fs from 'fs';
 import * as path from 'path';
 import {
@@ -14,7 +14,7 @@ interface DesignNavItemJson {
 
 export async function seedDesignNavItem() {
   // ❌ Không connect() nếu đã có kết nối sẵn (từ seedAll.ts)
-  if (connection.readyState === 0) {
+  if (!mongoose.connection || mongoose.connection.readyState === 0) {
     throw new Error('❌ MongoDB not connected. Call this after connecting!');
   }
 

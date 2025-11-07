@@ -1,4 +1,4 @@
-import mongoose, { connect, connection } from 'mongoose';
+import mongoose from 'mongoose';
 import * as fs from 'fs';
 import * as path from 'path';
 import {

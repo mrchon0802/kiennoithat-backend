@@ -1,4 +1,4 @@
-import mongoose, { connect, connection } from 'mongoose';
+import mongoose from 'mongoose';
 import * as fs from 'fs';
 import * as path from 'path';
 import {
@@ -23,7 +23,7 @@ export async function seedProductNavItem() {
   console.log('🌱 Seeding product nav items...');
 
   // ❌ Không tự connect nếu đang được gọi từ seedAll.ts
-  if (connection.readyState === 0) {
+  if (!mongoose.connection || mongoose.connection.readyState === 0) {
     throw new Error('❌ MongoDB not connected. Call this after connecting!');
   }
   // 2. Load file JSON
