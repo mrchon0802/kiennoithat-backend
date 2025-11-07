@@ -11,13 +11,13 @@ async function bootstrap() {
 
   app.enableCors({
     origin: [
-      'https://kiennoithat.vercel.app',
+      /^https:\/\/kiennoithat(-[\w-]+)?\.vercel\.app$/, // preview + production
       'http://localhost:3000',
-      'https://kiennoithat-evntl7bxs-mrchon0802s-projects-c871a8eb.vercel.app/',
     ],
     methods: ['GET', 'POST', 'PUT', 'DELETE', 'PATCH', 'OPTIONS'],
     credentials: true,
   });
+
   console.log('✅ CORS enabled for:', [
     'https://kiennoithat.vercel.app',
     'http://localhost:3000',
