@@ -13,22 +13,40 @@ interface DesignNavItemJson {
 }
 
 export async function seedDesignNavItem() {
-  await connect('mongodb://127.0.0.1:27017/kiennoithat');
-    console.log('✅ Connected to MongoDB');
+  // ❌ Không connect() nếu đã có kết nối sẵn (từ seedAll.ts)
+  if (connection.readyState === 0) {
+    throw new Error('❌ MongoDB not connected. Call this after connecting!');
+  }
 
-    const filePath = path.join(__dirname, '..', 'data', 'designNavItem.json');
-    const rawData = fs.readFileSync(filePath, 'utf-8');
-    const items = JSON.parse(rawData) as unknown as DesignNavItemJson[];
+  const filePath = path.join(__dirname, '..', 'data', 'designNavItem.json');
+  const rawData = fs.readFileSync(filePath, 'utf-8');
+  const items = JSON.parse(rawData) as unknown as DesignNavItemJson[];
 
-    const DesignNavItemModel = mongoose.model<DesignNavItemDocument>(
-      DesignNavItem.name,
-      DesignNavItemSchema as Schema, // 👈 cast để hết warning
-    );
+  const DesignNavItemModel = mongoose.model<DesignNavItemDocument>(
+    DesignNavItem.name,
+    DesignNavItemSchema as Schema, // 👈 cast để hết warning
+  );
 
-    await DesignNavItemModel.deleteMany({});
-    await DesignNavItemModel.insertMany(items);
+  await DesignNavItemModel.deleteMany({});
+  await DesignNavItemModel.insertMany(items);
 
-    console.log(`🎉 Seeded ${items.length} design nav items`);
+  console.log(`🎉 Seeded ${items.length} design nav items`);
 }
 
-seedDesignNavItem();
+// ⚙️ Nếu chạy trực tiếp file này (node seed-design-nav-item.ts)
+if (require.main === module) {
+  import('dotenv').then(async ({ config }) => {
+    config(); // load .env nếu có
+    const uri =
+      process.env.MONGO_URI || 'mongodb://127.0.0.1:27017/kiennoithat';
+
+    await mongoose.connect(uri);
+    console.log(`✅ Connected to MongoDB: ${uri}`);
+
+    await seedDesignNavItem();
+
+    await mongoose.connection.close();
+    console.log('🔒 Connection closed');
+    process.exit(0);
+  });
+}

@@ -21,8 +21,7 @@ export async function seedBanner() {
 
   // 1️⃣ Nếu chưa có kết nối thì mới connect
   if (connection.readyState === 0) {
-    await connect('mongodb://127.0.0.1:27017/kiennoithat');
-    console.log('✅ Connected to MongoDB (from seed-banner)');
+    throw new Error('❌ MongoDB not connected. Call this after connecting!');
   }
 
   // 2️⃣ Load JSON file
@@ -45,12 +44,14 @@ export async function seedBanner() {
   console.log(`🎉 Seeded ${banners.length} banners`);
 }
 
-// 6️⃣ Nếu chạy trực tiếp file này (node seed-banner.ts) thì tự đóng DB
+// ⚙️ Nếu chạy riêng file này bằng `node seed-banner.ts`
 if (require.main === module) {
-  seedBanner()
-    .catch((err) => console.error('❌ Error seeding banners:', err))
-    .finally(async () => {
-      await connection.close();
-      process.exit(0);
-    });
+  import('mongoose').then(async ({ connect, connection }) => {
+    const uri =
+      process.env.MONGO_URI || 'mongodb://127.0.0.1:27017/kiennoithat';
+    await connect(uri);
+    await seedBanner();
+    await connection.close();
+    process.exit(0);
+  });
 }
