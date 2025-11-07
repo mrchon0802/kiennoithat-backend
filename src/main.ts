@@ -10,7 +10,11 @@ async function bootstrap() {
   app.use(cookieParser());
 
   app.enableCors({
-    origin: ['https://kiennoithat.vercel.app', 'http://localhost:3000'],
+    origin: [
+      'https://kiennoithat.vercel.app',
+      'http://localhost:3000',
+      'https://kiennoithat-evntl7bxs-mrchon0802s-projects-c871a8eb.vercel.app/',
+    ],
     methods: ['GET', 'POST', 'PUT', 'DELETE', 'PATCH', 'OPTIONS'],
     credentials: true,
   });
