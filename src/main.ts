@@ -10,13 +10,14 @@ async function bootstrap() {
   app.use(cookieParser());
 
   app.enableCors({
-    origin: [
-      'https://kiennoithat.vercel.app',
-      'https://https://kiennoithat-lvpsgxiy9-mrchon0802s-projects-c871a8eb.vercel.app/',
-    ],
+    origin: ['https://kiennoithat.vercel.app', 'http://localhost:3000'],
     methods: ['GET', 'POST', 'PUT', 'DELETE', 'PATCH', 'OPTIONS'],
     credentials: true,
   });
+  console.log('✅ CORS enabled for:', [
+    'https://kiennoithat.vercel.app',
+    'http://localhost:3000',
+  ]);
 
   mongoose.connection.once('open', () => {
     console.log('✅ Connected to MongoDB Atlas');
