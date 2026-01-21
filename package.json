@@ -12,7 +12,7 @@
     "seed:design-nav-item": "ts-node ./scripts/seed/seed-design-nav-item.ts",
     "seed:product": "ts-node ./scripts/seed/seed-product.ts",
     "seed:product-nav-item": "ts-node ./scripts/seed/seed-product-nav-item.ts",
-    "build": "npx nest build",
+    "build": "tsc -p tsconfig.build.json",
     "format": "prettier --write \"src/**/*.ts\" \"test/**/*.ts\"",
     "start": "node dist/main.js",
     "start:dev": "nest start --watch",
