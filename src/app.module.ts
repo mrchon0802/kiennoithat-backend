@@ -11,17 +11,19 @@ import { OrderModule } from './order/order.module';
 import { UserModule } from './user/user.module';
 import { AuthModule } from './auth/auth.module';
 import { CartModule } from './cart/cart.module';
+import databaseConfig from './config/database.config';
 
 @Module({
   imports: [
     //load .env
-    ConfigModule.forRoot({ isGlobal: true }),
+    ConfigModule.forRoot({ isGlobal: true, load: [databaseConfig] }),
 
     //ket noi mongodb atlas
     MongooseModule.forRootAsync({
       imports: [ConfigModule],
-      useFactory: async (configService: ConfigService) => ({
-        uri: configService.get<string>('MONGO_URI'),
+
+      useFactory: (config: ConfigService) => ({
+        uri: config.get<string>('database.uri'),
         connectionFactory: (connection) => {
           console.log('✅ Connected to MongoDB:', connection.name);
           return connection;
