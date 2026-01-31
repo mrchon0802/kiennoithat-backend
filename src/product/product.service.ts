@@ -10,12 +10,32 @@ export class ProductService {
     private readonly productModel: Model<ProductDocument>,
   ) {}
 
+  async searchByTitle(keyword: string) {
+    const q = keyword?.trim();
+    if (!q) return [];
+
+    return this.productModel.find(
+      { $text: { $search: q } },
+      { score: { $meta: 'textScore' } },
+    );
+
+    return this.productModel
+      .find({ $text: { $search: keyword } }, { score: { $meta: 'textScore' } })
+      .sort({ score: { $meta: 'textScore' } })
+      .limit(8) // dropdown chỉ cần 5–10
+      .select('productId title image price')
+      .lean();
+  }
+
   async findAll(): Promise<Product[]> {
     return this.productModel.find().lean().exec();
   }
 
   async findOne(id: string): Promise<Product | null> {
     return this.productModel.findOne({ productId: id }).lean().exec();
+  }
+  async findHeroProducts() {
+    return this.productModel.find({ type: 'hero' }).lean();
   }
 
   async create(data: Partial<Product>): Promise<Product> {
@@ -37,9 +57,6 @@ export class ProductService {
   }
 
   async remove(id: string): Promise<Product | null> {
-    return this.productModel
-      .findOneAndDelete({ productId: id })
-      .lean()
-      .exec();
+    return this.productModel.findOneAndDelete({ productId: id }).lean().exec();
   }
 }

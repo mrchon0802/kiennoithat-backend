@@ -6,6 +6,7 @@ import {
   Param,
   Put,
   Delete,
+  Query,
 } from '@nestjs/common';
 import { ProductService } from './product.service';
 import { Product } from './product.schema';
@@ -14,11 +15,19 @@ import { Product } from './product.schema';
 export class ProductController {
   constructor(private readonly productService: ProductService) {}
 
+  @Get('search')
+  async search(@Query('q') q: string) {
+    return this.productService.searchByTitle(q || '');
+  }
+
   @Get()
   async findAll(): Promise<Product[]> {
     return this.productService.findAll();
   }
-
+  @Get('hero')
+  getHeroProducts() {
+    return this.productService.findHeroProducts();
+  }
   @Get(':id')
   async findOne(@Param('id') id: string): Promise<Product | null> {
     return this.productService.findOne(id);

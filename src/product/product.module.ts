@@ -6,7 +6,16 @@ import { Product, ProductSchema } from './product.schema';
 
 @Module({
   imports: [
-    MongooseModule.forFeature([{ name: Product.name, schema: ProductSchema }]),
+    MongooseModule.forFeatureAsync([
+      {
+        name: Product.name,
+        useFactory: () => {
+          const schema = ProductSchema;
+          schema.index({ title: 'text' }); // ✅ TEXT SEARCH INDEX
+          return schema;
+        },
+      },
+    ]),
   ],
   controllers: [ProductController],
   providers: [ProductService],

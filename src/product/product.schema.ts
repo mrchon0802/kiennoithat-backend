@@ -3,7 +3,8 @@ import { Document } from 'mongoose';
 
 export type ProductDocument = Product & Document;
 
-@Schema()
+/* ================= SIZE ================= */
+@Schema({ _id: false })
 export class Size {
   @Prop({ type: [String], required: true })
   width!: string[];
@@ -16,6 +17,7 @@ export class Size {
 }
 export const SizeSchema = SchemaFactory.createForClass(Size);
 
+/* ================= COLOR ================= */
 @Schema()
 export class ColorOption {
   @Prop({ required: true })
@@ -29,19 +31,10 @@ export class ColorOption {
 }
 export const ColorOptionSchema = SchemaFactory.createForClass(ColorOption);
 
-@Schema({ _id: true })
-export class Feature {
-  @Prop({ required: true })
-  image!: string;
-
-  @Prop({ required: true })
-  description!: string;
-}
-export const FeatureSchema = SchemaFactory.createForClass(Feature);
-
+/* ================= PRODUCT ================= */
 @Schema({ timestamps: true })
 export class Product {
-  @Prop({ required: true, unique: true })
+  @Prop({ required: true, unique: true, index: true })
   productId!: string;
 
   @Prop({ required: true })
@@ -56,16 +49,21 @@ export class Product {
   @Prop({ required: true })
   weight!: string;
 
-  // ❌ Xóa width, height, length dư thừa
-  // ✅ chỉ giữ Size object đúng theo JSON
+  @Prop({
+    type: String,
+    enum: ['hero', 'normal'],
+    default: 'normal',
+    index: true,
+  })
+  type!: 'hero' | 'normal';
+
   @Prop({ type: SizeSchema, required: true })
   size!: Size;
 
   @Prop({ type: [ColorOptionSchema], default: [] })
   colors!: ColorOption[];
-
-  @Prop({ type: [FeatureSchema], default: [] })
-  features!: Feature[];
 }
 
 export const ProductSchema = SchemaFactory.createForClass(Product);
+
+ProductSchema.index({ title: 'text' });

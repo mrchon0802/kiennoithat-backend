@@ -66,7 +66,7 @@ if (require.main === module) {
   import('dotenv').then(async ({ config }) => {
     config(); // load .env nếu có
     const uri =
-      process.env.MONGO_URI || 'mongodb://127.0.0.1:27017/kiennoithat';
+      process.env.DATABASE_URL || 'mongodb://127.0.0.1:27017/kiennoithat';
 
     await mongoose.connect(uri);
     console.log(`✅ Connected to MongoDB: ${uri}`);

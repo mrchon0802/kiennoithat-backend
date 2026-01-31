@@ -8,10 +8,11 @@ import { seedDesignNavItem } from './seed-design-nav-item';
 import { seedProduct } from './seed-product';
 import { seedProductNavItem } from './seed-product-nav-item';
 
+config();
 async function seedAll() {
   try {
     const uri =
-      process.env.MONGO_URI || 'mongodb://127.0.0.1:27017/kiennoithat';
+      process.env.DATABASE_URL || 'mongodb://127.0.0.1:27017/kiennoithat';
     console.log(`🔌 Connecting to MongoDB: ${uri}`);
 
     // 1. Connect DB chỉ 1 lần
