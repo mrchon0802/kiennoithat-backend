@@ -4,9 +4,7 @@ import { config } from 'dotenv';
 // Import trực tiếp các hàm seed từ các file riêng
 import { seedBanner } from './seed-banner';
 import { seedDesignCarousel } from './seed-design-carousel';
-import { seedDesignNavItem } from './seed-design-nav-item';
 import { seedProduct } from './seed-product';
-import { seedProductNavItem } from './seed-product-nav-item';
 
 config();
 async function seedAll() {
@@ -22,9 +20,8 @@ async function seedAll() {
     // 2. Gọi từng seed function
     await seedBanner();
     await seedDesignCarousel();
-    await seedDesignNavItem();
     await seedProduct();
-    await seedProductNavItem();
+  
 
     console.log('🎉 All seeders executed successfully!');
   } catch (err) {

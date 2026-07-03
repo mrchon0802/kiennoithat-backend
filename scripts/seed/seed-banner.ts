@@ -48,7 +48,7 @@ export async function seedBanner() {
 if (require.main === module) {
   import('mongoose').then(async ({ connect, connection }) => {
     const uri =
-      process.env.MONGO_URI || 'mongodb://127.0.0.1:27017/kiennoithat';
+      process.env.DATABASE_URL || 'mongodb://127.0.0.1:27017/kiennoithat';
     await connect(uri);
     await seedBanner();
     await connection.close();

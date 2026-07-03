@@ -4,9 +4,7 @@ import cookieParser from 'cookie-parser';
 import { MongooseModule } from '@nestjs/mongoose';
 import { BannerModule } from './banner/banner.module';
 import { DesignCarouselModule } from './design-carousel/design-carousel.module';
-import { DesignNavItemModule } from './design-nav-item/design-nav-item.module';
 import { ProductModule } from './product/product.module';
-import { ProductNavItemModule } from './product-nav-item/product-nav-item.module';
 import { OrderModule } from './order/order.module';
 import { UserModule } from './user/user.module';
 import { AuthModule } from './auth/auth.module';
@@ -33,9 +31,7 @@ import databaseConfig from './config/database.config';
     }),
     BannerModule,
     DesignCarouselModule,
-    DesignNavItemModule,
     ProductModule,
-    ProductNavItemModule,
     OrderModule,
     UserModule,
     AuthModule,

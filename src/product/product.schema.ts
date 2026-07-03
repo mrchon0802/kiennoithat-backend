@@ -3,22 +3,47 @@ import { Document } from 'mongoose';
 
 export type ProductDocument = Product & Document;
 
+/* ================= SIZE DIMENSIONS ================= */
+@Schema({ _id: false })
+export class SizeDimensions {
+  @Prop({ type: [Number] })
+  width?: number[];
+
+  @Prop({ type: [Number] })
+  length?: number[];
+
+  @Prop({ type: [Number] })
+  height?: number[];
+}
+export const SizeDimensionsSchema = SchemaFactory.createForClass(SizeDimensions);
+
+/* ================= SIZE DEFAULT ================= */
+@Schema({ _id: false })
+export class SizeDefault {
+  @Prop()
+  width?: number;
+
+  @Prop()
+  length?: number;
+
+  @Prop()
+  height?: number;
+}
+export const SizeDefaultSchema = SchemaFactory.createForClass(SizeDefault);
+
 /* ================= SIZE ================= */
 @Schema({ _id: false })
 export class Size {
-  @Prop({ type: [String], required: true })
-  width!: string[];
+  @Prop({ type: SizeDimensionsSchema, default: {} })
+  dimensions!: SizeDimensions;
 
-  @Prop({ required: true })
-  length!: string;
-
-  @Prop({ required: true })
-  height!: string;
+  @Prop({ type: SizeDefaultSchema, required: true })
+  default!: SizeDefault;
 }
 export const SizeSchema = SchemaFactory.createForClass(Size);
 
 /* ================= COLOR ================= */
-@Schema()
+@Schema({ _id: false })
 export class ColorOption {
   @Prop({ required: true })
   name!: string;
@@ -38,16 +63,24 @@ export class Product {
   productId!: string;
 
   @Prop({ required: true })
-  image!: string;
+  title!: string;
 
   @Prop({ required: true })
-  title!: string;
+  image!: string;
 
   @Prop({ required: true })
   price!: number;
 
   @Prop({ required: true })
-  weight!: string;
+  weight!: number;
+
+  @Prop({
+    required: true,
+    type: String,
+    enum: ['bed', 'table', 'chair', 'cabinet', 'sofa', 'other'],
+    index: true,
+  })
+  category!: string;
 
   @Prop({
     type: String,
@@ -56,6 +89,14 @@ export class Product {
     index: true,
   })
   type!: 'hero' | 'normal';
+
+  @Prop({
+    type: [String],
+    enum: ['living-room', 'bed-room', 'kitchen', 'home-office'],
+    default: [],
+    index: true,
+  })
+  room!: string[];
 
   @Prop({ type: SizeSchema, required: true })
   size!: Size;
@@ -66,4 +107,5 @@ export class Product {
 
 export const ProductSchema = SchemaFactory.createForClass(Product);
 
+/* ================= INDEX ================= */
 ProductSchema.index({ title: 'text' });
